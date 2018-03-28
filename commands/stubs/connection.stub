@@ -1,0 +1,9 @@
+type {{name}}Connection {
+  edges: [{{name}}Edge]
+  pageInfo: PageInfo!
+}
+
+type {{name}}Edge {
+  cursor: String!
+  node: {{name}}!
+}
