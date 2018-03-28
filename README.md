@@ -13,6 +13,10 @@ Grapple is an addon for [Adonis](http://adonisjs.com/) that wraps around [apollo
 	* [Dependencies](#dependencies)
 	* [Config](#config)
 * [Usage](#usage)
+	* [Getting Started](#gettingstarted)
+	* [Routing](#routing)
+	* [Helpers](#helpers)
+	* [DataLoaders](#dataloaders)
 * [Commands](#commands)
 	* [Schemas](#schemas)
 	* [Connections](#connections)
@@ -57,19 +61,23 @@ The configuration is saved inside `config/grapple.js` file. Tweak it accordingly
 
 module.exports = {
 	// Resolvers directory
-    'resolvers': 'app/GraphQL/Resolvers',
-	
-    // Schma types directory
-    'types': 'app/GraphQL/Schema',
+  'resolvers': 'app/GraphQL/Resolvers',
 
-	// Connections directory
-    'connections': 'app/GraphQL/Schema/connections',
+  // Schma types directory
+  'types': 'app/GraphQL/Schema',
 
-	// DataLoaders folder
-    'loaders': 'app/GraphQL/DataLoaders',
+  // Connections directory
+  'connections': 'app/GraphQL/Schema/connections',
 
-	// Schema stitching file
-    'schema': 'app/GraphQL'
+  // DataLoaders folder
+  'loaders': 'app/GraphQL/DataLoaders',
+
+  // Schema stitching file
+  'schema': 'app/GraphQL',
+
+  // Only use if you have defined the same type multiple times in
+  // different files and wish to attempt merging them together.
+  'merge': false
 }
 ```
 
