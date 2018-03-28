@@ -60,7 +60,7 @@ The configuration is saved inside `config/grapple.js` file. Tweak it accordingly
 'use strict'
 
 module.exports = {
-	// Resolvers directory
+  // Resolvers directory
   'resolvers': 'app/GraphQL/Resolvers',
 
   // Schma types directory
