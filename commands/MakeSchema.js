@@ -19,7 +19,10 @@ class MakeSchema extends Command {
    * @return {string}
    */
   static get signature () {
-    return `grapple:schema { name: Name of the schema }`
+    return `grapple:schema { name: Name of the schema } 
+    { -r, --resolver : Create a resolver } 
+    { -d, --dataloader : Create a dataloader } 
+    { -c, --connection : Create a connection }`
   }
 
   /**
@@ -40,9 +43,9 @@ class MakeSchema extends Command {
    *
    * @return {void}
    */
-  async handle ({ name }) {
+  async handle ({ name }, { resolver, dataloader, connection }) {
     const camelName = _.camelCase(name)
-    const stubPath = path.join(__dirname, './stubs/schema.stub')
+    const stubPath = path.join(__dirname, './stubs/type.stub')
     const typesLocation = Config.get('grapple.types')
     const filePath = path.join(typesLocation, camelName) + '.type.graphql'
     const stub = await this.readFile(stubPath, 'utf-8')
@@ -53,6 +56,20 @@ class MakeSchema extends Command {
     const createdFile = `${typesLocation}/${camelName}.type.graphql`
 
     console.log(`${this.icon('success')} ${this.chalk.green('create')}  ${createdFile}`)
+
+    const ace = require('@adonisjs/ace')
+
+    if (resolver) {
+      await ace.call('grapple:resolver', {name})
+    }
+
+    if (dataloader) {
+      await ace.call('grapple:loader', {name})
+    }
+
+    if (connection) {
+      await ace.call('grapple:connection', {name})
+    }
   }
 }
 

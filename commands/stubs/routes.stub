@@ -1,0 +1,35 @@
+'use strict'
+
+/*
+|--------------------------------------------------------------------------
+| Routes
+|--------------------------------------------------------------------------
+|
+| Http routes are entry points to your web application. You can create
+| routes for different URL's and bind Controller actions to them.
+|
+*/
+
+const Route = use('Route')
+const GraphQLServer = use('Grapple/GraphQLServer')
+const GraphiQL = require('apollo-server-module-graphiql')
+const Env = use('Env')
+const DataLoader = use('Grapple/DataLoader')
+
+Route.route('/graphql', (context) => {
+  return GraphQLServer.handle(context, {
+    // OPTIONS
+  })
+}, ['GET', 'POST'])
+
+if (Env.get('NODE_ENV') === 'development') {
+  Route.get('/graphiql', ({ request, response }) => {
+    const options = {
+      endpointURL: '/graphql',
+    }
+
+    return GraphiQL.resolveGraphiQLString(request.originalUrl(), options, request).then(graphiqlString => {
+      response.header('Content-Type', 'text/html').send(graphiqlString)
+    }, error => response.send(error))
+  })
+}

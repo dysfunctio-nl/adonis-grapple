@@ -1,11 +1,15 @@
-type {{name}} {
-  #
-}
+'use strict'
 
-type Query {
-  #
-}
+// Types
+exports.types = [
+    //
+]
 
-type Mutation {
-  #
+// Resolvers
+exports.resolvers = [
+    //
+]
+
+exports.dataLoaders = {
+    //
 }

@@ -6,11 +6,11 @@ const { types, resolvers } = use('Grapple/Schema/Setup')
 const Config = use('Config')
 
 module.exports = () => {
-  const typeDefs = (types === undefined || types.length == 0) ? { Query: {} } : types
+  const typeDefs = (types === undefined || types.length == 0) ? ["type Query { missingSchema: Int }"] : types
 
   return makeExecutableSchema({
     typeDefs: mergeTypes(
-      (types === undefined || types.length == 0) ? { Query: {} } : types, 
+      typeDefs, 
       { all: Config.get('grapple.merge') }
     ),
     
