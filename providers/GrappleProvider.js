@@ -4,17 +4,16 @@ const { ServiceProvider } = use('@adonisjs/fold')
 
 class GrappleProvider extends ServiceProvider {
   boot () {
-    if (!(use('Helpers')).isAceCommand()) {
-      this._registerAlias()
-      this._registerGlobals()
-      this._bindDataLoaders()
-    }
+    this._registerAlias()
+    this._registerGlobals()
+    this._bindDataLoaders()
 
     const ace = use('@adonisjs/ace')
     ace.addCommand('Grapple/Commands/Make/Schema')
     ace.addCommand('Grapple/Commands/Make/Connection')
     ace.addCommand('Grapple/Commands/Make/Resolver')
     ace.addCommand('Grapple/Commands/Make/Loader')
+    ace.addCommand('Grapple/Commands/Setup')
   }
 
   register () {
@@ -46,6 +45,7 @@ class GrappleProvider extends ServiceProvider {
     this.app.bind('Grapple/Commands/Make/Connection', () => require('../commands/MakeConnection'))
     this.app.bind('Grapple/Commands/Make/Resolver', () => require('../commands/MakeResolver'))
     this.app.bind('Grapple/Commands/Make/Loader', () => require('../commands/MakeLoader'))
+    this.app.bind('Grapple/Commands/Setup', () => require('../commands/SetupStructure'))
   }
 
   _bindDataLoaders() {

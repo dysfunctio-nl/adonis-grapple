@@ -15,3 +15,7 @@ This module has dependencies on `@adonisjs/bodyparser`.
 ## Config
 
 The configuration is saved inside `config/grapple.js` file. Tweak it accordingly.
+
+## Docs
+
+To find out more, read the docs [here](https://github.com/eNzyOfficial/adonis-grapple).

@@ -1,4 +1,6 @@
 
+
+
 # Adonis Grapple
 
   
@@ -33,7 +35,29 @@ Grapple is an addon for [Adonis](http://adonisjs.com/) that wraps around [apollo
 
 ## Setup
 ### Install
-`npm install --save adonis-grapple`
+
+Install Grapple
+```txt
+adonis install adonis-grapple
+```
+
+Run the setup to create the folder structure based on `config/grapple.js`
+```bash
+# Tack -r to replace the routes file to include GraphQL and GraphiQL
+adonis grapple:setup
+```
+
+Register the provider inside `start/app.js` file
+```js
+const providers = [
+  'adonis-grapple/providers/GrappleProvider'
+]
+```
+
+Start the server
+```bash
+adonis serve --dev
+```
 
 ----------
 
@@ -107,6 +131,8 @@ exports.dataLoaders = {
 }
 ````
 
+----------
+
 ### Routing
 
 To actually setup your server routers, open `start/routers.php` and use something similar to the following:
@@ -149,13 +175,17 @@ if (Env.get('NODE_ENV') === 'development') {
 }
 ```
 
+----------
+
 ### Helpers
 ```js
 requireGraphQL('user.type') // Imports user.type.graphql from `schema` Folder
-requireGraphQL('connections/user.connection') // Imports user.connection.graphql from `schema/connections` folder
+requireConnection('connections/user.connection') // Imports user.connection.graphql from `schema/connections` folder
 requireResolver('user.resolver') // Imports user.resolver.js from `resolvers` folder
 requireLoader('user.loader') // Imports user.loader from `dataloaders` folder
 ```
+
+----------
 
 ### DataLoaders
 
@@ -191,6 +221,13 @@ Create a boilerplate schema file
 
 `adonis grapple:schema User`
 
+```bash
+# Create extra resources by tacking any of the following
+-r --resolver
+-c --connection
+-d --dataloader
+```
+
 ##### Example:
 
 ```graphql
@@ -207,7 +244,7 @@ type Mutation {
 
 }
 ```
-
+----------
 
 ### Connections
 Create a boilerplate connection file 
@@ -231,6 +268,7 @@ type UserEdge {
 }
 ```
 
+----------
 
 ### Resolvers
 Create a boilerplate resolver file 
@@ -256,6 +294,7 @@ module.exports = {
 }
 ```
 
+----------
 
 ### DataLoaders
 Create a boilerplate dataloader file 

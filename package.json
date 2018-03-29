@@ -1,15 +1,17 @@
 {
   "name": "adonis-grapple",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "GraphQL Provider for AdonisJs Framework",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src"
   },
-  "private": true,
+  "private": false,
   "keywords": [
     "adonisjs",
-    "adonis-framework"
+    "adonis-framework",
+	"graphql",
+	"dataloader"
   ],
   "author": "Carl Knowles",
   "license": "MIT",
