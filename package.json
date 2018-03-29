@@ -1,6 +1,6 @@
 {
   "name": "adonis-grapple",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "GraphQL Provider for AdonisJs Framework",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,9 @@
     "graphql": "^0.13.2",
     "graphql-tools": "^2.23.1",
     "merge-graphql-schemas": "^1.5.1"
+  },
+  "repository": { 
+	"type" : "git",
+	"url" : "https://github.com/eNzyOfficial/adonis-grapple"
   }
 }
