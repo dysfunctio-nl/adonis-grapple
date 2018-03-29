@@ -41,17 +41,17 @@ Install Grapple
 adonis install adonis-grapple
 ```
 
-Run the setup to create the folder structure based on `config/grapple.js`
-```bash
-# Tack -r to replace the routes file to include GraphQL and GraphiQL
-adonis grapple:setup
-```
-
 Register the provider inside `start/app.js` file
 ```js
 const providers = [
   'adonis-grapple/providers/GrappleProvider'
 ]
+```
+
+Run the setup to create the folder structure based on `config/grapple.js`
+```bash
+# Tack -r to replace the routes file to include GraphQL and GraphiQL
+adonis grapple:setup
 ```
 
 Start the server
