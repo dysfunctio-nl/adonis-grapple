@@ -38,13 +38,13 @@ Grapple is an addon for [Adonis](http://adonisjs.com/) that wraps around [apollo
 
 Install Grapple
 ```txt
-adonis install adonis-grapple
+adonis install @dysfunctionl/adonis-grapple
 ```
 
 Register the provider inside `start/app.js` file
 ```js
 const providers = [
-  'adonis-grapple/providers/GrappleProvider'
+  '@dysfunctionl/adonis-grapple/providers/GrappleProvider'
 ]
 ```
 

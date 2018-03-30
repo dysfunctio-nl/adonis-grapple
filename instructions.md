@@ -4,7 +4,7 @@ Like any other provider, you need to register the provider inside `start/app.js`
 
 ```js
 const providers = [
-  'adonis-grapple/providers/GrappleProvider'
+  '@dysfunctionl/adonis-grapple/providers/GrappleProvider'
 ]
 ```
 
@@ -18,4 +18,4 @@ The configuration is saved inside `config/grapple.js` file. Tweak it accordingly
 
 ## Docs
 
-To find out more, read the docs [here](https://github.com/eNzyOfficial/adonis-grapple).
+To find out more, read the docs [here](https://github.com/dysfunctio-nl/adonis-grapple).
