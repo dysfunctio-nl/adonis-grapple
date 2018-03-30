@@ -4,7 +4,7 @@ Like any other provider, you need to register the provider inside `start/app.js`
 
 ```js
 const providers = [
-  'adonis-grapple/providers/GrappleProvider'
+  '@dysfunctionl/adonis-grapple/providers/GrappleProvider'
 ]
 ```
 
